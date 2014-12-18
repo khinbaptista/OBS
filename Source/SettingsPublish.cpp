@@ -78,19 +78,19 @@ void SettingsPublish::ApplySettings()
         AppConfig->SetInt(TEXT("Publish"), TEXT("Service"), serviceID);
     }
 
-    String strTemp = GetEditText(GetDlgItem(hwnd, IDC_PLAYPATH));
+    String strTemp = GetEditText(GetDlgItem(hwnd, IDC_PLAYPATH));	
     strTemp.KillSpaces();
-    AppConfig->SetString(TEXT("Publish"), TEXT("PlayPath"), strTemp);
+    AppConfig->SetString(TEXT("Publish"), TEXT("PlayPath"), strTemp); //configura meeting-id
 
     if(serviceID == 0)
     {
         strTemp = GetEditText(GetDlgItem(hwnd, IDC_URL));
-        AppConfig->SetString(TEXT("Publish"), TEXT("URL"), strTemp);
+        AppConfig->SetString(TEXT("Publish"), TEXT("URL"), strTemp); //configura a url (custom) do servidor red5
     }
     else
     {
         strTemp = GetCBText(GetDlgItem(hwnd, IDC_SERVERLIST));
-        AppConfig->SetString(TEXT("Publish"), TEXT("URL"), strTemp);
+        AppConfig->SetString(TEXT("Publish"), TEXT("URL"), strTemp); //configura a url caso o serviço seja youtube, twitch, etc
     }
 
     //------------------------------------------

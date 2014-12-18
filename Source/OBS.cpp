@@ -272,9 +272,19 @@ OBS::OBS()
 
     bFullscreenMode = false;
 
+	if (!(bIsInvisible)) {
     hwndMain = CreateWindowEx(WS_EX_CONTROLPARENT|WS_EX_WINDOWEDGE, OBS_WINDOW_CLASS, GetApplicationName(),
         WS_OVERLAPPED | WS_THICKFRAME | WS_MAXIMIZEBOX | WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU | WS_CLIPCHILDREN,
         x, y, cx, cy, NULL, NULL, hinstMain, NULL);
+	}
+	else
+	{
+		//if the user wants OBS to be hidden and be controled by messages (-silent or -invisible flags)
+		hwndMain = CreateWindowEx(WS_EX_CONTROLPARENT|WS_EX_WINDOWEDGE|WS_EX_NOACTIVATE, OBS_WINDOW_CLASS, GetApplicationName(),
+        WS_OVERLAPPED | WS_THICKFRAME | WS_MAXIMIZEBOX | WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU | WS_CLIPCHILDREN,
+        x, y, cx, cy, HWND_MESSAGE , NULL, hinstMain, NULL);
+	}
+
     if(!hwndMain)
         CrashError(TEXT("Could not create main window"));
 

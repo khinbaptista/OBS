@@ -176,6 +176,9 @@ public:
     virtual UINT GetSampleRateHz() const=0;
 
     virtual void SetAbortApplySettings(bool abort) = 0;
+	
+	virtual void SetStreamUrl(CTSTR url) = 0;
+	virtual void SetStreamPath(CTSTR path) = 0;
 };
 
 BASE_EXPORT extern APIInterface *API;
@@ -287,6 +290,10 @@ BASE_EXPORT void OBSGetCurMicVolumeStats(float *rms, float *max, float *peak);
 
 BASE_EXPORT void OBSAddSettingsPane(SettingsPane *pane);
 BASE_EXPORT void OBSRemoveSettingsPane(SettingsPane *pane);
+
+/* OBStray interface calls */
+BASE_EXPORT void OBSSetStreamUrl(CTSTR newUrl);
+BASE_EXPORT void OBSSetStreamPath(CTSTR newPath);
 
 /** gets API version.  version is formatted: 0xMMmm */
 BASE_EXPORT UINT OBSGetAPIVersion();

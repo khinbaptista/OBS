@@ -144,3 +144,7 @@ void OBSRemoveSettingsPane(SettingsPane *pane)  {API->RemoveSettingsPane(pane);}
 UINT OBSGetAPIVersion()                         {return 0x0101;}
 
 UINT OBSGetSampleRateHz()                       {return API->GetSampleRateHz();}
+
+/*OBStray calls */
+void OBSSetStreamUrl(CTSTR newStreamUrl)		{API->SetStreamUrl(newStreamUrl);}
+void OBSSetStreamPath(CTSTR newStreamPath)			{API->SetStreamPath(newStreamPath);} 

@@ -39,6 +39,7 @@ ConfigFile  *AppConfig      = NULL;
 OBS         *App            = NULL;
 bool        bIsPortable     = false;
 bool        bStreamOnStart  = false;
+bool		bIsInvisible	= false;
 TCHAR       lpAppPath[MAX_PATH];
 TCHAR       lpAppDataPath[MAX_PATH];
 
@@ -421,6 +422,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             bIsPortable = true;
         else if (scmpi(args[i], TEXT("-start")) == 0)
             bStreamOnStart = true;
+		else if ((scmpi(args[i], TEXT("-silent")) == 0) || (scmpi(args[i], TEXT("-invisible")) == 0))
+			bIsInvisible = true;
     }
 
     LocalFree(args);

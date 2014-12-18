@@ -592,6 +592,9 @@ public:
     virtual void RemoveSettingsPane(SettingsPane *pane) {App->RemoveSettingsPane(pane);}
 
     virtual UINT GetSampleRateHz() const {return App->GetSampleRateHz();}
+
+	virtual void SetStreamUrl(CTSTR url)				{AppConfig->SetString(TEXT("Publish"), TEXT("URL"), url); } //setup play path
+	virtual void SetStreamPath(CTSTR path)				{AppConfig->SetString(TEXT("Publish"), TEXT("PlayPath"), path); } //setup broadcast server	
 };
 
 APIInterface* CreateOBSApiInterface()
@@ -908,6 +911,10 @@ float OBS::GetDesktopVolume()
 
 void OBS::ToggleDesktopMute()
 {
+	String strTemp = "Meeting-ID";
+    strTemp.KillSpaces();
+    AppConfig->SetString(TEXT("Publish"), TEXT("PlayPath"), strTemp); //configura meeting-id
+
     HWND desktop = GetDlgItem(hwndMain, ID_DESKTOPVOLUME);
     
     /*Send message to desktop volume control and have it handle it*/
