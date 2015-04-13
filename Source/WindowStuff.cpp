@@ -2463,6 +2463,14 @@ LRESULT CALLBACK OBS::OBSProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPa
                     App->ToggleCapturing();
                     EnableWindow(GetDlgItem(hwnd, ID_STARTSTOP), true);
                     break;
+				
+				case ID_START:
+					App->StartStreaming();
+					break;
+
+				case ID_STOP:
+					App->StopStreaming();
+					break;
 
                 case ID_MINIMIZERESTORE:
                     {

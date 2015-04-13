@@ -346,6 +346,8 @@ enum
     ID_SETTINGS=5000,
     ID_TOGGLERECORDING,
     ID_STARTSTOP,
+	ID_START,
+	ID_STOP,
     ID_EXIT,
     ID_SCENEEDITOR,
     ID_DESKTOPVOLUME,
@@ -940,6 +942,9 @@ private:
 
     void ToggleCapturing();
     void ToggleRecording();
+
+	void StartStreaming();
+	void StopStreaming();
 
     Scene* CreateScene(CTSTR lpClassName, XElement *data);
     void ConfigureScene(XElement *element);

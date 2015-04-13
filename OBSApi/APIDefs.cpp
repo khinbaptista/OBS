@@ -109,6 +109,8 @@ QWORD OBSGetAudioTime()         {return API->GetAudioTime();}
 CTSTR OBSGetAppPath()           {return API->GetAppPath();}
 
 void OBSStartStopStream()       {API->StartStopStream();}
+void OBSStartStream()			{API->StartStream();}
+void OBSStopStream()			{API->StopStream();}
 void OBSStartStopPreview()      {API->StartStopPreview();}
 bool OBSGetStreaming()          {return API->GetStreaming();}
 bool OBSGetPreviewOnly()        {return API->GetPreviewOnly();}

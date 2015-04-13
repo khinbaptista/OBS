@@ -425,6 +425,16 @@ public:
         PostMessage(hwndMain, WM_COMMAND, MAKEWPARAM(ID_STARTSTOP, 0), 0);
     }
 
+	virtual void StartStream()
+	{
+		PostMessage(hwndMain, WM_COMMAND, MAKEWPARAM(ID_START, 0), 0);
+	}
+
+	virtual void StopStream()
+	{
+		PostMessage(hwndMain, WM_COMMAND, MAKEWPARAM(ID_STOP, 0), 0);		
+	}
+
     virtual void StartStopPreview()
     {
         PostMessage(hwndMain, WM_COMMAND, MAKEWPARAM(ID_TESTSTREAM, 0), 0);

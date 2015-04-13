@@ -119,6 +119,8 @@ public:
     virtual CTSTR GetAppPath() const=0;
 
     virtual void StartStopStream() = 0;
+	virtual void StartStream() = 0;
+	virtual void StopStream() = 0;
     virtual void StartStopPreview() = 0;
     virtual bool GetStreaming() = 0;
     virtual bool GetPreviewOnly() = 0;
@@ -242,6 +244,8 @@ BASE_EXPORT QWORD OBSGetAudioTime();
 BASE_EXPORT CTSTR OBSGetAppPath();
 
 BASE_EXPORT void OBSStartStopStream();
+BASE_EXPORT void OBSStartStream();
+BASE_EXPORT void OBSStopStream();
 BASE_EXPORT void OBSStartStopPreview();
 BASE_EXPORT bool OBSGetStreaming();
 BASE_EXPORT bool OBSGetPreviewOnly();
