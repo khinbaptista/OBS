@@ -276,7 +276,10 @@ BOOL ParseUpdateManifest (TCHAR *path, BOOL *updatesAvailable, String &descripti
 
 DWORD WINAPI CheckUpdateThread (VOID *arg)
 {
-    int responseCode;
+	// We don't want OBS to check for updates
+	return 0;
+
+    /*int responseCode;
     TCHAR extraHeaders[256];
     BYTE manifestHash[20];
     TCHAR manifestPath[MAX_PATH];
@@ -401,5 +404,5 @@ abortUpdate:
 
     CryptReleaseContext(hProvider, 0);
 
-    return 0;
+    return 0;*/
 }
